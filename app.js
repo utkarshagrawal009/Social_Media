@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
 const postRoute = require("./routes/posts");
-const port = 8800;
+const port = process.env.PORT || 8800;
 
 
 const app = express();
@@ -34,4 +34,4 @@ app.get("/", (req, res) => {
     res.send("Welome")
 });
 
-app.listen(process.env.PORT || port, () => console.log(`Listening to $(port)`));
+app.listen(port, () => console.log(`Listening to ${port}`));
